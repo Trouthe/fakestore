@@ -1,0 +1,23 @@
+mat-card-content { 
+  padding-top: .75rem; 
+
+  h2 {
+    margin-bottom: .25rem;
+  }
+
+  span {
+    font-weight: 500;
+    font-size: 19px;
+  }
+}
+
+img { 
+  $padding: 8px;
+  height: 175px;
+  padding: $padding;
+  padding-bottom: 0;
+  object-fit: contain; 
+}
+
+mat-card-actions { gap: .5rem }
+.product-card { max-width: 250px }

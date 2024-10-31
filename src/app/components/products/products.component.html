@@ -1,0 +1,11 @@
+<p>products works!</p>
+<section>
+  <div class="product-list">
+    @for (product of products(); track $index) {
+    <app-product-card [product]="product"></app-product-card>
+    }
+  </div>
+  <div>
+    <button mat-flat-button color="primary" (click)="loadMore(5)">Load More</button>
+  </div>
+</section>

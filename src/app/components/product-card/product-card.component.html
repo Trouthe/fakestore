@@ -1,0 +1,16 @@
+<mat-card class="product-card" appearance="outlined">
+  <img
+    mat-card-image
+    [src]="product.image"
+    alt="Photo of the product"
+  />
+  <mat-card-content>
+    <h2>{{ product.title | slice: 0:15 }}...</h2>
+    <p>{{ product.description| slice: 0:45 }}...</p>
+    <span>{{ product.price }}</span>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="accent">Buy now</button>
+    <mat-icon>add_shopping_cart</mat-icon>
+  </mat-card-actions>
+</mat-card>
