@@ -1,0 +1,23 @@
+<mat-toolbar role="heading" color="primary">
+  <span routerLink="/">Fake Shop</span>
+
+  <span class="spacer"></span>
+  
+  @if (authService.currentUserSig() == null) {
+    <div>
+      <a routerLink="/login" mat-flat-button color="primary">Login</a>
+      <a routerLink="/register" mat-flat-button>Register</a>
+    </div>
+  } @else {
+    <!-- <img [mat-menu-trigger-for]="menu" src="/assets/default_user.webp" alt="Default User Icon"> -->
+    <div class="icons">
+      <mat-icon [mat-menu-trigger-for]="menu" class="profile">account_circle</mat-icon>
+      <mat-icon>shopping_cart</mat-icon>
+    </div>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Profile</button>
+      <button class="logout" mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+  }
+</mat-toolbar>

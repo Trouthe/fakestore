@@ -1,0 +1,32 @@
+span { cursor: pointer }
+a { margin-inline: 5px }
+mat-toolbar { padding-inline: 7rem }
+mat-icon { 
+  $mat-icon-size: 40px;
+
+  width: $mat-icon-size; 
+  height: $mat-icon-size; 
+  font-size: $mat-icon-size; 
+}
+
+.spacer { flex: 1 1 auto }
+.logout { 
+  background-color: #d43f31 !important; 
+  color: white; 
+
+  &:hover { filter: brightness(115%) }
+}
+.icons {
+  display: flex;
+  gap: 1rem;
+
+  mat-icon:hover { 
+    cursor: pointer; 
+    filter: brightness(75%); 
+  }
+}
+
+@media (max-width: 599px) {
+  .mat-toolbar { padding-inline: 2rem }
+  img { height: var(--mat-toolbar-mobile-height); }
+}

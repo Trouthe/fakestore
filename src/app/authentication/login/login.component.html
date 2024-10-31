@@ -1,0 +1,34 @@
+<app-navigation></app-navigation>
+
+<section>
+  <h1>Welcome Back!</h1>
+
+  @switch (errorMessage) {
+    @case ("auth/invalid-email") {
+      <div class="error-message"><span>Invalid Email!</span></div>
+    }
+
+    @case ("auth/invalid-credential") {
+      <div class="error-message"><span>User Does Not Exist!</span></div>
+    }
+  }
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="text" placeholder="Email" formControlName="email" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+      />
+    </mat-form-field>
+
+    <button mat-raised-button type="submit" color="primary">Login</button>
+  </form>
+</section>
