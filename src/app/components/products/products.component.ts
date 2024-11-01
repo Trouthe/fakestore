@@ -24,7 +24,7 @@ import { Router } from '@angular/router';
     MatSidenavModule,
     MatButtonToggleModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
@@ -38,7 +38,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.loadProducts();
   }
-  
+
   goto(page: string): void {
     this.router.navigate([page]);
   }
@@ -66,7 +66,7 @@ export class ProductsComponent implements OnInit {
   sortByCategory(category: string) {
     if (category === 'all') {
       this.shop.getProducts().subscribe((data) => {
-        this.products.update((currentData) => data);
+        this.products.set(data);
       });
     } else {
       this.shop.getProductsByCategory(category).subscribe((data) => {

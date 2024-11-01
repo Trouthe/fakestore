@@ -55,14 +55,14 @@
         <div>
           <button mat-stroked-button [matMenuTriggerFor]="categories">Category</button>
           <mat-menu #categories="matMenu">
-            <button mat-menu-item>All</button>
+            <button mat-menu-item (click)="sortByCategory('all')">All</button>
             <button mat-menu-item [matMenuTriggerFor]="clothing">Fashion</button>
-            <button mat-menu-item>Electronics</button>
-            <button mat-menu-item>Jewelry</button>
+            <button mat-menu-item (click)="sortByCategory('electronics')">Electronics</button>
+            <button mat-menu-item (click)="sortByCategory('jewelery')">Jewelry</button>
           </mat-menu>
           <mat-menu #clothing>
-            <button mat-menu-item>Women's Clothing</button>
-            <button mat-menu-item>Men's Clothing</button>
+            <button mat-menu-item (click)="sortByCategory('women\'s clothing')">Women's Clothing</button>
+            <button mat-menu-item (click)="sortByCategory('men\'s clothing')">Men's Clothing</button>
           </mat-menu>
         </div>
       </div>
