@@ -1,11 +1,83 @@
-<p>products works!</p>
-<section>
-  <div class="product-list">
-    @for (product of products(); track $index) {
-    <app-product-card [product]="product"></app-product-card>
-    }
-  </div>
-  <div>
-    <button mat-flat-button color="primary" (click)="loadMore(5)">Load More</button>
-  </div>
-</section>
+<mat-drawer-container>
+  <!-- Side Content - Filtering -->
+  <!-- <mat-drawer mode="side" opened>
+    <p>Side Content</p>
+    <p>Filtering Login Goes Here</p>
+    <p>Fixed Width + Sticky Content?</p>
+  </mat-drawer> -->
+
+  <!-- Main Content -->
+  <mat-drawer-content>
+    <h1>Browse Our Latest Arrivals!</h1>
+    <swiper-container autoplay="true" effect="fade" loop="true" autoplay-delay="5000" speed="500">
+      <swiper-slide>
+        <div class="slider-wrapper">
+          <img (click)="goto('electronics')" src="/assets/banner_electronics.webp" alt="Banner For Electronics" />
+          <div class="slider-info">
+            <h2>Electronic devices</h2>
+            <p>Discover the latest in electronic devices – from cutting-edge smartphones to top-rated accessories. Click to explore tech that makes life easier, smarter, and more fun!</p>
+          </div>
+        </div>
+      </swiper-slide>
+
+      <swiper-slide>
+        <div class="slider-wrapper">
+          <img (click)="goto('clothing')" src="/assets/banner_fashion.webp" alt="Banner For Clothing" />
+          <div class="slider-info">
+            <h2>New Fashion Arrivals</h2>
+            <p>Step into style with the latest fashion arrivals! Discover trending looks, fresh designs, and must-have pieces for every season. Click to upgrade your wardrobe!</p>
+          </div>
+        </div>
+      </swiper-slide>
+
+      <swiper-slide>
+        <div class="slider-wrapper">
+          <img (click)="goto('jewelery')" src="/assets/banner_jewelry.webp" alt="Banner For Jewelry" />
+          <div class="slider-info">
+            <h2>Best Quality Jewelry</h2>
+            <p>Elevate your style with our stunning jewelry collection! Discover elegant pieces, from timeless classics to modern designs, perfect for any occasion. Click to find your sparkle!</p>
+          </div>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+
+    <section>
+      <!-- Filtering -->
+      <div class="product-filtering">
+        <div>
+          <span>Price:</span>
+          <mat-button-toggle-group (change)="sortByPrice($event.value)" [hideSingleSelectionIndicator]="true" aria-label="Sort by Price">
+            <mat-button-toggle value="asc">Low to High</mat-button-toggle>
+            <mat-button-toggle value="desc">High to Low</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+
+        <div>
+          <button mat-stroked-button [matMenuTriggerFor]="categories">Category</button>
+          <mat-menu #categories="matMenu">
+            <button mat-menu-item>All</button>
+            <button mat-menu-item [matMenuTriggerFor]="clothing">Fashion</button>
+            <button mat-menu-item>Electronics</button>
+            <button mat-menu-item>Jewelry</button>
+          </mat-menu>
+          <mat-menu #clothing>
+            <button mat-menu-item>Women's Clothing</button>
+            <button mat-menu-item>Men's Clothing</button>
+          </mat-menu>
+        </div>
+      </div>
+
+      <!-- Acutal Products -->
+      <div class="product-list">
+        @for (product of products(); track $index) {
+          <app-product-card [product]="product"></app-product-card>
+        }
+      </div>
+
+      <!-- Load More -->
+      <div class="loadmore">
+        <button mat-flat-button color="primary" (click)="loadMore(10)">Browse More</button>
+      </div>
+    </section>
+  </mat-drawer-content>
+</mat-drawer-container>

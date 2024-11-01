@@ -1,16 +1,16 @@
-<mat-card class="product-card" appearance="outlined">
+<mat-card (click)="goto(product.title, product.id)" class="product-card" appearance="outlined">
   <img
     mat-card-image
     [src]="product.image"
     alt="Photo of the product"
   />
   <mat-card-content>
-    <h2>{{ product.title | slice: 0:15 }}...</h2>
-    <p>{{ product.description| slice: 0:45 }}...</p>
-    <span>{{ product.price }}</span>
+    <h2>{{ product.title | slice : 0 : 15 }}...</h2>
+    <p>{{ product.description | slice : 0 : 45 }}...</p>
+    <div>
+      <span>$ {{ product.price }}</span>
+      <!-- $event.stopPropagation() => stop the card from being pressed with the cart component -->
+      <mat-icon (click)="debug('Cart'); $event.stopPropagation()">add_shopping_cart</mat-icon>
+    </div>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button color="accent">Buy now</button>
-    <mat-icon>add_shopping_cart</mat-icon>
-  </mat-card-actions>
 </mat-card>

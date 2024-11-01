@@ -1,8 +1,9 @@
-mat-card-content { 
-  padding-top: .75rem; 
+mat-card-actions { gap: 0.5rem }
+mat-card-content {
+  padding-top: 0.75rem;
 
   h2 {
-    margin-bottom: .25rem;
+    margin-bottom: 0.25rem;
   }
 
   span {
@@ -11,13 +12,33 @@ mat-card-content {
   }
 }
 
-img { 
+mat-icon:hover {
+  cursor: pointer;
+  scale: 1.085;
+}
+
+mat-card:hover {
+  cursor: pointer;
+  scale: 1.01;
+
+  h2, p { color: var(--mat-badge-background-color); }
+}
+
+img {
   $padding: 8px;
   height: 175px;
   padding: $padding;
   padding-bottom: 0;
-  object-fit: contain; 
+  object-fit: contain;
 }
 
-mat-card-actions { gap: .5rem }
-.product-card { max-width: 250px }
+div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-card {
+  margin-inline: auto;
+  max-width: 250px;
+}

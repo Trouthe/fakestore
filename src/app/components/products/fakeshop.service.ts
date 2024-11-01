@@ -15,7 +15,19 @@ export class FakeshopService {
     return this.http.get<Product[]>(`https://fakestoreapi.com/products`);
   }
 
+  getProductsByCategory(category: string): Observable<Product[]> {
+    return this.http.get<Product[]>(`https://fakestoreapi.com/products/category/${category}`);
+  }
+
   getMoreProducts(limit: number): Observable<Product[]> {
     return this.http.get<Product[]>(`https://fakestoreapi.com/products?limit=${limit}`);
+  }
+
+  getMoreProductsByCategory(category: string, limit: number): Observable<Product[]> {
+    return this.http.get<Product[]>(`https://fakestoreapi.com/products/category/${category}?limit=${limit}`);
+  }
+
+  getSingleProduct(id: number): Observable<Product> {
+    return this.http.get<Product>(`https://fakestoreapi.com/products/${id}`);
   }
 }

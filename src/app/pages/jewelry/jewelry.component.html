@@ -1,0 +1,30 @@
+<app-navigation></app-navigation>
+
+<section style="max-width: 1440px; margin-inline: auto;">
+  <div class="product-filtering">
+    <div>
+      <span>Price:</span>
+      <mat-button-toggle-group
+        (change)="sortByPrice($event.value)"
+        [hideSingleSelectionIndicator]="true"
+        aria-label="Sort by Price"
+      >
+        <mat-button-toggle value="asc">Low to High</mat-button-toggle>
+        <mat-button-toggle value="desc">High to Low</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+  </div>
+
+  <div class="product-list">
+    @for (product of products(); track $index) {
+    <app-product-card [product]="product"></app-product-card>
+    }
+  </div>
+
+  <!-- Load More -->
+  <div class="loadmore">
+    <button mat-flat-button color="primary" (click)="loadMore(10)">
+      Browse More
+    </button>
+  </div>
+</section>

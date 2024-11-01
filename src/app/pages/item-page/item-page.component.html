@@ -1,0 +1,28 @@
+<app-navigation></app-navigation>
+<section>
+    <!-- Breadcrums -->
+    <div class="breadcrumbs">
+        <a routerLink="/">Home</a>
+        <mat-icon>arrow_forward_ios</mat-icon>
+        @if (product.category === "men's clothing" || product.category === "women's clothing") {
+          <a routerLink="/clothing">Clothing</a>
+          <mat-icon>arrow_forward_ios</mat-icon>
+          <a routerLink="/clothing">{{ product.category | titlecase }}</a>
+        } @else {
+          <a [routerLink]="'/' + product.category">{{ product.category | titlecase }}</a>  
+        }
+    </div>
+
+    <div class="product-details">
+      <img [src]="product.image" alt="">
+      <div class="product-details-description">
+        <h1>{{ product.title }}</h1>
+
+        <mat-divider></mat-divider>
+
+        <h2>Description</h2>
+        <p>{{ product.description }}</p>
+        <button mat-flat-button color="primary">Buy Now</button>
+      </div>
+    </div>
+</section>

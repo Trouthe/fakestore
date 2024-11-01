@@ -2,7 +2,7 @@
 
 <section>
   <h1>Welcome Back!</h1>
-
+  
   @switch (errorMessage) {
     @case ("auth/invalid-email") {
       <div class="error-message"><span>Invalid Email!</span></div>
@@ -12,23 +12,24 @@
       <div class="error-message"><span>User Does Not Exist!</span></div>
     }
   }
-
+  
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
       <input matInput type="text" placeholder="Email" formControlName="email" />
     </mat-form-field>
-
+    
     <mat-form-field appearance="outline">
       <mat-label>Password</mat-label>
       <input
-        matInput
-        type="password"
-        placeholder="Password"
-        formControlName="password"
+      matInput
+      type="password"
+      placeholder="Password"
+      formControlName="password"
       />
     </mat-form-field>
-
+    
+    <small>Don't have an account? <a routerLink="/register">Sign Up</a> here</small>
     <button mat-raised-button type="submit" color="primary">Login</button>
   </form>
 </section>
